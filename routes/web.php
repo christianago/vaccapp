@@ -15,9 +15,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'web'], function(){
 
-    Route::get('/','App\Http\Controllers\HomeController@home')->name('home');
+    Route::get('/login','App\Http\Controllers\Auth\AuthController@login')->name('login');
 
-    Route::get('/stats','App\Http\Controllers\HomeController@stats');
+    Route::post('/login','App\Http\Controllers\Auth\AuthController@process_login')->name('process-login');
 
-    Route::post('/stats','App\Http\Controllers\HomeController@stats');
+    Route::get('/join','App\Http\Controllers\Auth\AuthController@register')->name('register');
+
+    Route::post('/process-join','App\Http\Controllers\Auth\AuthController@process_register')->name('process-register');
+
+    Route::get('/logout','App\Http\Controllers\Auth\AuthController@logout')->name('logout');
+    
+    Route::group(['middleware' => 'auth'], function(){
+
+        Route::get('/','App\Http\Controllers\HomeController@home')->name('home');
+
+        Route::get('/stats','App\Http\Controllers\HomeController@stats');
+
+        Route::post('/stats','App\Http\Controllers\HomeController@stats');
+
+    });
 });
