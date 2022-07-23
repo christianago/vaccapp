@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Vaccination extends Model
+{
+    public $timestamps = true;
+    
+    protected $table = 'vaccinations';
+
+
+}

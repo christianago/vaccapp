@@ -1,0 +1,26 @@
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html, body {
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+input{
+  font-size: 13px !important;
+}
+
+.alert-danger:empty {
+  display: none;
+}
+
+#loading{
+  display: none;
+  position: absolute;
+  left: 48%;
+  top: 30%;
+  width: 100px;
+}
